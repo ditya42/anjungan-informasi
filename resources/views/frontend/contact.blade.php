@@ -1,5 +1,5 @@
 
-  @extends('frontend.layout')
+  @extends('frontend.layoutkontak')
 
   @section('content')
 
@@ -9,7 +9,7 @@
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
         <h2>Kontak BKPP Tabalong</h2>
-        <p>Kirimkan kritik dan saran atau pertanyaan anda untuk kemajuan pelayanan BKPP Tabalong. </p>
+
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -43,38 +43,24 @@
                 <p>(0526) 2021511</p>
               </div>
 
+              <br><br>
+              <div class="tombol">
+              <a href="{{ route('index') }}"><button type="button" class="btn btn-success"><i class="icofont-arrow-left"></i>
+                <p class="terang">Kembali</p>
+                <p class="terang">ke Halaman Utama</p>
+
+            </button></a>
+              </div>
+
             </div>
 
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nama" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{{ asset('assets/img/BKPP2.jpg') }}" alt="" width="700" height="400">
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Kritik dan Saran atau Pertanyaan"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Pesan anda telah terkirim!</div>
-              </div>
-              <div class="text-center"><button type="submit">Kirim</button></div>
-            </form>
 
           </div>
 

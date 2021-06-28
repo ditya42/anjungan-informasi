@@ -395,10 +395,40 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+.wrapper{
+ max-height: 120 px;
+
+ /* border: 1px solid rgb(255, 255, 255); */
+ display: flex;
+ overflow-x: auto;
+
+}
+
+.wrapper::-webkit-scrollbar{
+    width: 0;
+}
+
+.wrapper .item {
+    min-width: 110px;
+    width: 200px;
+    height: 190px;
+    line-height: 110px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin-right: 20px;
+    margin-bottom: 10px;
+    /* border: 1px solid rgb(14, 241, 52); */
+    border-radius: 10px;
+    /* flex: 1 1 200px;
+    visibility: collapse; */
+}
+
+
 #hero {
   width: 100%;
-  height: 95vh;
-  background: url("../img/bkpp2.jpg") top center;
+
+  height: 100vh;
+  background: url("../img/bkpp3.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -415,7 +445,18 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .container {
   padding-top: 75px;
+
+
+
 }
+
+.full {
+    width: 100%;
+
+
+
+
+  }
 
 @media (max-width: 992px) {
   #hero .container {
@@ -444,12 +485,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 10px 35px;
+  padding: 50px 35px;
   border-radius: 50px;
   transition: 0.5s;
-  margin-top: 30px;
-  border: 2px solid #fff;
+  margin-top: 70px;
+  margin-left: 120px;
+  border: 10px solid #fff;
   color: #fff;
+  background: #5fcf80;
 }
 
 #hero .btn-get-started:hover {
@@ -668,6 +711,17 @@ section {
   border-radius: 50px;
   transition: all ease-in-out 0.4s;
 }
+
+.why-us  .back-btn {
+    display: inline-block;
+    background: #c7ffd8;
+    padding: 6px 30px 8px 30px;
+    color: #345f41;
+    border-radius: 50px;
+    transition: all ease-in-out 0.4s;
+  }
+
+
 
 .why-us .content .more-btn i {
   font-size: 14px;
@@ -1044,6 +1098,16 @@ section {
   margin-bottom: 15px;
 }
 
+.course-details  .back-btn {
+    display: inline-block;
+    background: #c7ffd8;
+    padding: 6px 30px 8px 30px;
+    color: #345f41;
+    border-radius: 50px;
+    transition: all ease-in-out 0.4s;
+  }
+
+
 .courses .sidebar .course-info {
     background: #f6f7f6;
     padding: 10px 15px;
@@ -1314,6 +1378,8 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
+
 .contact {
   padding-top: 5px;
 }
@@ -1350,6 +1416,13 @@ section {
   margin-bottom: 0;
   font-size: 14px;
   color: #657a6d;
+}
+
+.contact .info .tombol p{
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #f4f8f5;
 }
 
 .contact .info .email, .contact .info .phone {

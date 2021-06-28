@@ -30,6 +30,25 @@ class IndexController extends Controller
         return view('frontend.index');
     }
 
+    public function layanan(Request $request, $id)
+    {
+
+        $layanan  = $id;
+        // dd($layanan);
+
+        return view('frontend.layanan', ['layanan'=>$layanan]);
+    }
+
+    public function syarat(Request $request, $id)
+    {
+
+        $syarat  = $id;
+        $layanan = $request->subbidang;
+        // dd($syarat);
+
+        return view('frontend.persyaratan', ['syarat'=>$syarat, 'layanan'=>$layanan]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

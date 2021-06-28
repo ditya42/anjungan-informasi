@@ -44,10 +44,31 @@ Route::namespace('Admin')->group(function () {
 
 
 
-
+    //anjungan-informasi
     //users
     Route::get('/users/data','UserController@data')->name('users.data');
     Route::resource("users", "UserController");
+
+
+    Route::get('/subbidang/data','SubbidangController@data')->name('subbidang.data');
+    Route::resource("subbidang", "SubbidangController");
+
+    Route::get('/DasarHukum/data','DasarHukumController@data')->name('dasarhukum.data');
+    Route::resource("dasarhukum", "DasarHukumController");
+
+    Route::get('/Layanan/data','LayananController@data')->name('layanan.data');
+    Route::resource("layanan", "LayananController");
+
+    //end-anjungan-informasi
+
+
+
+
+
+
+
+
+
 
 
     //jabatan
@@ -67,6 +88,10 @@ Route::namespace('Admin')->group(function () {
 Route::namespace('frontend')->group(function () {
 
     Route::get('/', 'IndexController@index')->name('index');
+
+    Route::get('/layanan/{id}', 'IndexController@layanan')->name('layanan');
+
+    Route::get('/Syarat/{id}', 'IndexController@syarat')->name('syarat');
 
 
 });

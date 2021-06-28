@@ -73,7 +73,87 @@
 
    <!-- ======= Footer ======= -->
 
+<!-- ======= Footer ======= -->
+<footer id="footer">
 
+    {{-- <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>BKPP Tabalong</h3>
+
+              <strong>Telepon:</strong> (0526) 2021511<br>
+              <strong>Email:</strong> bkpptabalon@gmail.com<br>
+            </p>
+          </div> --}}
+
+          {{-- <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Link</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('index') }}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://bkpp.tabalongkab.go.id/">Website BKPP</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('contact') }}">Kontak BKPP</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>HyperLink</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#layanan">Layanan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#cara-lapor">Cara Lapor</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Kembali ke atas</a></li>
+
+            </ul>
+          </div> --}}
+
+
+
+          {{-- <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Alamat</h4>
+            <p>
+                Jl. Tanjung Selatan, <br>
+                Mabuun, Murung Pudak, <br>
+                Kabupaten Tabalong, <br>
+                Kalimantan Selatan 71571. <br><br>
+
+          </div>
+
+        </div>
+      </div>
+    </div> --}}
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>BKPP Tabalong</span></strong>. All Rights Reserved
+        </div>
+
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+
+
+
+
+    </div>
+
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+
+
+
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
 
 
