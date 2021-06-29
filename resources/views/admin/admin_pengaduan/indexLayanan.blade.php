@@ -7,7 +7,7 @@
   <div class="col-xs-12">
     <div class="box box-primary">
       <div class="box-header">
-        <a href="{{ route('subbidang.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah</a>
+        <a href="{{ route('layanan.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah</a>
       </div>
       <div class="box-body">
         <div class="table-responsive">
@@ -54,7 +54,7 @@
         columns : [
           { data: 'DT_RowIndex', orderable: false, searchable: false},
           { data: 'nama_layanan' },
-          { data: 'subbidang_id' },
+          { data: 'nama_subbidang' },
           { data: 'biaya' },
 
           { data: 'action', action: 'actions', orderable: false, searchable: false }
@@ -73,7 +73,7 @@
       .then((willDelete) => {
         if (willDelete) {
             $.ajax({
-            url : "subbidang/"+id,
+            url : "layanan/"+id,
             type : "POST",
             data: {
                 "_method" : "DELETE",

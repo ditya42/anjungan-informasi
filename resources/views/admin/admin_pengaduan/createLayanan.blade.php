@@ -1,8 +1,8 @@
 @extends('admin.admin_pengaduan.content')
-@section('title') Tambah Sub Bidang @endsection
-@section('breadcrumb') Tambah Sub Bidang @endsection
+@section('title') Tambah Dasar Hukum @endsection
+@section('breadcrumb') Tambah Dasar Hukum @endsection
 @section('content')
-  <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('subbidang.store')}}" method="POST">
+  <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('dasarhukum.store')}}" method="POST">
     @csrf
   <div class="box box-default">
     <div class="box-header with-border">
@@ -18,25 +18,31 @@
       <div class="row">
         <div class="col-md-5">
           <div class="form-group">
-            <label>Nama Sub Bidang</label>
+            <label>Nama Layanan</label>
             <input value="{{old('name')}}" type="text" style="width: 500px;" class="form-control {{$errors->first('name') ? "is-invalid": ""}}"  name="name" id="name">
             <div class="invalid-feedback">
                 {{$errors->first('name')}}
             </div>
 
+            <label for="address">Biaya</label>
+            <textarea name="biaya" id="biaya" rows="5" cols="80" class="form-control {{$errors->first('biaya') ? "is-invalid" : ""}}">{{old('biaya')}}</textarea>
+            <div class="invalid-feedback">
+                {{$errors->first('biaya')}}
+            </div>
+
+
             <br>
+            <div>
 
-                <div class="form-group">
-                  <label for="avatar">Gambar Avatar</label>
-
-                  <input id="avatar" name="avatar" type="file" style="width: 500px;" class="form-control {{$errors->first('avatar') ? "is-invalid" : ""}}">
-                  <div class="invalid-feedback">
-                      {{$errors->first('avatar')}}
-                  </div>
-                </div>
-
-
-
+                <label for="subbidang">Subbidang</label>
+            <select name="subbidang">
+                @php
+                    foreach($subbidang as $r){
+                        echo "<option value='" . $r['subbidang_id'] ."'>" . $r['nama_subbidang'] ."</option>";
+                    }
+                @endphp
+            </select>
+            </div>
           </div>
           <!-- /.form-group -->
         </div>
@@ -47,7 +53,7 @@
     </div>
     <div class="box-footer">
       <button type="submit" class="btn btn-primary btn-save"><i class="fa fa-floppy-o"></i> Simpan </button>
-      <a href="{{ route('subbidang.index') }}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i> Batal</a>
+      <a href="{{ route('layanan.index') }}" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i> Batal</a>
     </div>
   </div>
   </form>

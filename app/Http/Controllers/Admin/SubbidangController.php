@@ -30,7 +30,7 @@ class SubbidangController extends Controller
 
     public function data()
     {
-        $query = Subbidang::orderBy('created_at','asc');
+        $query = Subbidang::orderBy('created_at','asc')->get();
         // dd($query);
         return DataTables::of($query)
         ->addColumn('action', function ($list) {

@@ -59,6 +59,9 @@ Route::namespace('Admin')->group(function () {
     Route::get('/Layanan/data','LayananController@data')->name('layanan.data');
     Route::resource("layanan", "LayananController");
 
+
+    // Route::get('/Layanan/apimutasi/','LayananController@apipegawai')->name('superadminnotadinas.apipegawai');
+
     //end-anjungan-informasi
 
 
