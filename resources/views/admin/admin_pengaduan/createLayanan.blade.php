@@ -2,7 +2,7 @@
 @section('title') Tambah Dasar Hukum @endsection
 @section('breadcrumb') Tambah Dasar Hukum @endsection
 @section('content')
-  <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('dasarhukum.store')}}" method="POST">
+  <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('layanan.store')}}" method="POST">
     @csrf
   <div class="box box-default">
     <div class="box-header with-border">
@@ -22,7 +22,7 @@
             <input value="{{old('name')}}" type="text" style="width: 500px;" class="form-control {{$errors->first('name') ? "is-invalid": ""}}"  name="name" id="name">
             <div class="invalid-feedback">
                 {{$errors->first('name')}}
-            </div>
+            </div><br>
 
             <label for="address">Biaya</label>
             <textarea name="biaya" id="biaya" rows="5" cols="80" class="form-control {{$errors->first('biaya') ? "is-invalid" : ""}}">{{old('biaya')}}</textarea>

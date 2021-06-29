@@ -49,6 +49,17 @@
                                 "className": "text-center",
                                 // "width": "4%"
                             },
+
+                            {
+                                "targets": 3, // your case first column, if all "targets": "_all",
+                                "className": "text-center",
+                                "width": "10%"
+                            },
+                            {
+                                "targets": 4, // your case first column, if all "targets": "_all",
+                                "className": "text-center",
+                                "width": "30%"
+                            },
         ],
 
         columns : [

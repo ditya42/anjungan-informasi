@@ -42,15 +42,15 @@ class LayananController extends Controller
         ->addColumn('action', function ($list) {
             return '
             <center>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Prosedur</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Pengelolaan Aduan</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Produk Layanan</i></a>
-            <a style="margin:5px" href=""  class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
-            <a style="margin:5px" onclick="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Prosedur</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Pengelolaan Aduan</i></a>
+            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Produk Layanan</i></a>
+            <a style="margin:1px" href="' . route('layanan.edit', $list->layanan_id) . '"  class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Edit</a>
+            <a style="margin:1px" onclick="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</a>
             </center>
             ';
         })
@@ -73,6 +73,51 @@ class LayananController extends Controller
         // dd($subbidang);
         return view('admin.admin_pengaduan.createLayanan',[
             'subbidang' => $subbidang,
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validation = \Validator::make($request->all(),[
+            "name" => "required",
+            "biaya" => "required",
+            "subbidang" => "required"
+
+        ])->validate();
+
+        $nama =  $request->get('name');
+        $check = Layanan::where('nama_layanan', $nama )->first();
+        // dd($check);
+
+
+
+        $layanan = new Layanan;
+        $layanan->nama_layanan = $request->get('name');
+        $layanan->biaya = $request->get('biaya');
+        $layanan->subbidang_id = $request->get('subbidang');
+
+        if($check != NULL) {
+            session()->flash('error', 'Data Sudah Ada.');
+            return redirect()->route('layanan.index');
+        } else {
+
+
+            $layanan->save();
+            session()->flash('success', 'Data Berhasil Disimpan.');
+            return redirect()->route('layanan.index');
+        }
+
+    }
+
+    public function edit($id)
+    {
+        $layanan = Layanan::findOrFail($id);
+
+        $subbidang = Subbidang::orderBy('created_at','asc')->get();
+        // dd($subbidang);
+        return view('admin.admin_pengaduan.editLayanan', [
+            'layanan' => $layanan,
+            'subbidang' => $subbidang
         ]);
     }
 }
