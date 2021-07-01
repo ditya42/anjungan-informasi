@@ -42,7 +42,7 @@ class LayananController extends Controller
         ->addColumn('action', function ($list) {
             return '
             <center>
-            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
+            <a style="margin:1px" href="' . route('dasarlayanan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Prosedur</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>

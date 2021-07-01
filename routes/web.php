@@ -59,6 +59,12 @@ Route::namespace('Admin')->group(function () {
     Route::get('/Layanan/data','LayananController@data')->name('layanan.data');
     Route::resource("layanan", "LayananController");
 
+    Route::get('/DasarLayanan/data','DasarLayananController@data')->name('dasarlayanan.data');
+    Route::get('/DasarLayanan/{id}','DasarLayananController@index')->name('dasarlayanan.index');
+    Route::DELETE('/DasarLayanan/{id}','DasarLayananController@destroy')->name('dasarlayanan.destroy');
+    // Route::resource("dasarlayanan", "LayananController");
+
+
 
     // Route::get('/Layanan/apimutasi/','LayananController@apipegawai')->name('superadminnotadinas.apipegawai');
 
