@@ -62,6 +62,17 @@ Route::namespace('Admin')->group(function () {
     Route::get('/DasarLayanan/data','DasarLayananController@data')->name('dasarlayanan.data');
     Route::get('/DasarLayanan/{id}','DasarLayananController@index')->name('dasarlayanan.index');
     Route::DELETE('/DasarLayanan/{id}','DasarLayananController@destroy')->name('dasarlayanan.destroy');
+
+
+    Route::get('/persyaratan/data','PersyaratanController@data')->name('persyaratan.data');
+    Route::get('/persyaratan/{id}','PersyaratanController@index')->name('persyaratan.index');
+    Route::get('/tambahpersyaratan/{id}','PersyaratanController@create')->name('persyaratan.create');
+    Route::get('/editpersyaratan/{id}','PersyaratanController@edit')->name('persyaratan.edit');
+    Route::post('/persyaratan','PersyaratanController@store')->name('persyaratan.store');
+    Route::DELETE('/persyaratan/{id}','PersyaratanController@destroy')->name('persyaratan.destroy');
+    Route::PUT('/updatepersyaratan/{id}','PersyaratanController@update')->name('persyaratan.update');
+
+
     // Route::resource("dasarlayanan", "LayananController");
 
 

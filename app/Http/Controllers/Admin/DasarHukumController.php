@@ -72,7 +72,7 @@ class DasarHukumController extends Controller
 
         if($check != NULL) {
             session()->flash('error', 'Data Sudah Ada.');
-            return redirect()->route('dasarhukum.index');
+            return redirect()->back();
         } else {
 
 
@@ -114,7 +114,7 @@ class DasarHukumController extends Controller
 
         if($check != NULL) {
             session()->flash('error', 'Data Sudah Ada.');
-            return redirect()->route('dasarhukum.index');
+            return redirect()->back();
         } else {
 
 

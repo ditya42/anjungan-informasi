@@ -43,7 +43,7 @@ class LayananController extends Controller
             return '
             <center>
             <a style="margin:1px" href="' . route('dasarlayanan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
-            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
+            <a style="margin:1px" href="' . route('persyaratan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Prosedur</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
@@ -119,5 +119,40 @@ class LayananController extends Controller
             'layanan' => $layanan,
             'subbidang' => $subbidang
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validation = \Validator::make($request->all(),[
+            "name" => "required",
+            "biaya" => "required",
+            "subbidang" => "required"
+
+
+        ])->validate();
+
+        $nama =  $request->get('name');
+        $check = Layanan::where('nama_layanan', $nama )
+                ->where('layanan_id', '!=' , $id)
+                ->first();
+
+
+        $layanan = Layanan::findOrFail($id);
+        $layanan->nama_layanan = $request->get('name');
+        $layanan->biaya = $request->get('biaya');
+        $layanan->subbidang_id = $request->get('subbidang');
+
+
+        if($check != NULL) {
+            session()->flash('error', 'Data Sudah Ada.');
+            return redirect()->back();
+        } else {
+
+            $layanan->save();
+            session()->flash('success', 'Data Berhasil Diupdate.');
+            return redirect()->route('layanan.index');
+        }
+
+
     }
 }
