@@ -73,6 +73,15 @@ Route::namespace('Admin')->group(function () {
     Route::PUT('/updatepersyaratan/{id}','PersyaratanController@update')->name('persyaratan.update');
 
 
+    Route::get('/prosedur/data','ProsedurController@data')->name('prosedur.data');
+    Route::get('/prosedur/{id}','ProsedurController@index')->name('prosedur.index');
+    Route::get('/tambahprosedur/{id}','ProsedurController@create')->name('prosedur.create');
+    Route::get('/editprosedur/{id}','ProsedurController@edit')->name('prosedur.edit');
+    Route::post('/prosedur','ProsedurController@store')->name('prosedur.store');
+    Route::DELETE('/prosedur/{id}','ProsedurController@destroy')->name('prosedur.destroy');
+    Route::PUT('/updateprosedur/{id}','ProsedurController@update')->name('prosedur.update');
+
+
     // Route::resource("dasarlayanan", "LayananController");
 
 
