@@ -81,6 +81,23 @@ Route::namespace('Admin')->group(function () {
     Route::DELETE('/prosedur/{id}','ProsedurController@destroy')->name('prosedur.destroy');
     Route::PUT('/updateprosedur/{id}','ProsedurController@update')->name('prosedur.update');
 
+    Route::get('/penyelesaian/data','PenyelesaianController@data')->name('penyelesaian.data');
+    Route::get('/penyelesaian/{id}','PenyelesaianController@index')->name('penyelesaian.index');
+    Route::get('/tambahpenyelesaian/{id}','PenyelesaianController@create')->name('penyelesaian.create');
+    Route::get('/editpenyelesaian/{id}','PenyelesaianController@edit')->name('penyelesaian.edit');
+    Route::post('/penyelesaian','PenyelesaianController@store')->name('penyelesaian.store');
+    Route::DELETE('/penyelesaian/{id}','PenyelesaianController@destroy')->name('penyelesaian.destroy');
+    Route::PUT('/updatepenyelesaian/{id}','PenyelesaianController@update')->name('penyelesaian.update');
+
+
+    Route::get('/pelaksana/data','PelaksanaController@data')->name('pelaksana.data');
+    Route::get('/pelaksana/{id}','PelaksanaController@index')->name('pelaksana.index');
+    Route::get('/tambahpelaksana/{id}','PelaksanaController@create')->name('pelaksana.create');
+    Route::get('/editpelaksana/{id}','PelaksanaController@edit')->name('pelaksana.edit');
+    Route::post('/pelaksana','PelaksanaController@store')->name('pelaksana.store');
+    Route::DELETE('/pelaksana/{id}','PelaksanaController@destroy')->name('pelaksana.destroy');
+    Route::PUT('/updatepelaksana/{id}','PelaksanaController@update')->name('pelaksana.update');
+
 
     // Route::resource("dasarlayanan", "LayananController");
 

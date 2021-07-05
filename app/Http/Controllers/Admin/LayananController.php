@@ -45,8 +45,8 @@ class LayananController extends Controller
             <a style="margin:1px" href="' . route('dasarlayanan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">DasarHukum</i></a>
             <a style="margin:1px" href="' . route('persyaratan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Persyaratan</i></a>
             <a style="margin:1px" href="' . route('prosedur.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Prosedur</i></a>
-            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
-            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
+            <a style="margin:1px" href="' . route('penyelesaian.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
+            <a style="margin:1px" href="' . route('pelaksana.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Pengelolaan Aduan</i></a>
             <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Produk Layanan</i></a>
             <a style="margin:1px" href="' . route('layanan.edit', $list->layanan_id) . '"  class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Edit</a>
