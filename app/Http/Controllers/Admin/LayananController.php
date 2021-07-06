@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Aduan;
+use App\DasarLayanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Layanan;
+use App\Pelaksana;
+use App\Penyelesaian;
+use App\Persyaratan;
+use App\Produk;
+use App\Prosedur;
 use App\Subbidang;
 use Illuminate\Support\Facades\Gate;
 use DB;
@@ -48,9 +55,9 @@ class LayananController extends Controller
             <a style="margin:1px" href="' . route('penyelesaian.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Waktu Penyelesaian</i></a>
             <a style="margin:1px" href="' . route('pelaksana.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Kompetensi Pelaksana</i></a>
             <a style="margin:1px" href="' . route('aduan.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Pengelolaan Aduan</i></a>
-            <a style="margin:1px" href=""  class="btn btn-sm btn-success"><i class="fa fa-pencil">Produk Layanan</i></a>
+            <a style="margin:1px" href="' . route('produk.index', $list->layanan_id) . '"  class="btn btn-sm btn-success"><i class="fa fa-pencil">Produk Layanan</i></a>
             <a style="margin:1px" href="' . route('layanan.edit', $list->layanan_id) . '"  class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Edit</a>
-            <a style="margin:1px" onclick="" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</a>
+            <a style="margin:1px" onclick="deleteData('.$list->layanan_id.')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</a>
             </center>
             ';
         })
@@ -155,4 +162,35 @@ class LayananController extends Controller
 
 
     }
+
+    public function destroy($id)
+    {
+        // dd($id);
+        Layanan::destroy($id);
+
+        $dasarlayanan = DasarLayanan::where('layanan_id', '=', $id)->delete();
+        // $dasarlayanan->delete();
+
+        $kompetensi = Pelaksana::where('layanan_id', '=', $id)->delete();
+        // $kompetensi->delete();
+
+        $aduan = Aduan::where('layanan_id', '=', $id)->delete();
+        // $aduan->delete();
+
+        $persyaratan = Persyaratan::where('layanan_id', '=', $id)->delete();
+        // $persyaratan->delete();
+
+        $produk = Produk::where('layanan_id', '=', $id)->delete();
+        // $produk->delete();
+
+        $prosedur = Prosedur::where('layanan_id', '=', $id)->delete();
+        // $prosedur->delete();
+
+        $penyelesaian = Penyelesaian::where('layanan_id', '=', $id)->delete();
+        // $penyelesaian->delete();
+
+        session()->flash('success', 'Data Berhasil Dihapus.');
+        return redirect()->back();
+    }
+
 }

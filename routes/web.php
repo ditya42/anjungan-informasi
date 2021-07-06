@@ -108,6 +108,16 @@ Route::namespace('Admin')->group(function () {
     Route::DELETE('/aduan/{id}','AduanController@destroy')->name('aduan.destroy');
     Route::PUT('/updateaduan/{id}','AduanController@update')->name('aduan.update');
 
+
+
+    Route::get('/produk/data','ProdukController@data')->name('produk.data');
+    Route::get('/produk/{id}','ProdukController@index')->name('produk.index');
+    Route::get('/tambahproduk/{id}','ProdukController@create')->name('produk.create');
+    Route::get('/editproduk/{id}','ProdukController@edit')->name('produk.edit');
+    Route::post('/produk','ProdukController@store')->name('produk.store');
+    Route::DELETE('/produk/{id}','ProdukController@destroy')->name('produk.destroy');
+    Route::PUT('/updateproduk/{id}','ProdukController@update')->name('produk.update');
+
     // Route::resource("dasarlayanan", "LayananController");
 
 
