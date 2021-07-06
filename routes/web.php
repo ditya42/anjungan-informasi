@@ -99,6 +99,15 @@ Route::namespace('Admin')->group(function () {
     Route::PUT('/updatepelaksana/{id}','PelaksanaController@update')->name('pelaksana.update');
 
 
+
+    Route::get('/aduan/data','AduanController@data')->name('aduan.data');
+    Route::get('/aduan/{id}','AduanController@index')->name('aduan.index');
+    Route::get('/tambahaduan/{id}','AduanController@create')->name('aduan.create');
+    Route::get('/editaduan/{id}','AduanController@edit')->name('aduan.edit');
+    Route::post('/aduan','AduanController@store')->name('aduan.store');
+    Route::DELETE('/aduan/{id}','AduanController@destroy')->name('aduan.destroy');
+    Route::PUT('/updateaduan/{id}','AduanController@update')->name('aduan.update');
+
     // Route::resource("dasarlayanan", "LayananController");
 
 
